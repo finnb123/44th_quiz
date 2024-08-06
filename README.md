@@ -30,3 +30,13 @@
     Vercel  
   </li>
 </ul>
+
+<h2>How To Run</h2>
+<ol>
+  <li>Run command npm install</li>
+  <li>Run command npx prisma init --datasource-provider sqlite</li>
+  <li>Copy Schema from schema.md, replace content in prisma/schema.prisma</li>
+  <li>Run command npx prisma migrate dev --name init</li>
+  <li>Run command npx prisma generate</li>
+  <li>Run command npm dev to open dev server</li>
+</ol>
