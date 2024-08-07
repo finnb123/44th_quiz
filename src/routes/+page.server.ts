@@ -1,16 +1,16 @@
-import prisma from "$lib/server/prisma";
-import type { PageServerLoad } from "./$types";
+import prisma from '$lib/server/prisma';
+import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async () => {
-  // should also be a function
-  const response = prisma.quiz.findMany({
-    where: { published: true },
-    select: {
-      title: true,
-      id: true,
-    },
-  });
-  return { quizzes: response };
+	// should also be a function
+	const response = prisma.quiz.findMany({
+		where: { published: true },
+		select: {
+			title: true,
+			id: true
+		}
+	});
+	return { quizzes: response };
 };
 
 // export const actions: Actions = {
