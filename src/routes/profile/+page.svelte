@@ -11,7 +11,7 @@
 	<h2 class="mx-auto text-center text-3xl text-headline">Profile</h2>
 	<p class="mx-auto mt-2 text-center text-xl text-headline">Hello {username}!</p>
 	<h4 class="mx-auto mt-4 text-center text-2xl text-headline">Your Quizzes</h4>
-	<div class="flex items-center justify-center relative overflow-x-auto mt-6">
+	<div class="flex items-center justify-center relative overflow-x-auto mt-2">
 		{#await quizzes}
 			<Loading />
 		{:then loaded}
@@ -27,11 +27,11 @@
 					</tr>
 				</thead>
 
-				<tbody class="text-xl text-headline">
+				<tbody class="text-xl">
 					{#each loaded as { title, published, id }, i}
 						<a href="/p/{id}" class="contents">
 							<tr
-								class="odd:bg-background even:bg-secondary odd:hover:text-highlight even:hover:text-background"
+								class='odd:bg-background even:bg-headline odd:text-headline even:text-background hover:text-highlight'
 							>
 								<th
 									scope="row"

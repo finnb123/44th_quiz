@@ -40,10 +40,10 @@
 						</tr>
 					</thead>
 
-					<tbody class="text-xl text-headline">
+					<tbody class="text-xl ">
 						{#each loaded as { content, image_url, id }}
 							<tr
-								class="odd:bg-background even:bg-secondary odd:hover:text-highlight even:hover:text-background"
+								class='odd:bg-background even:bg-headline odd:text-headline even:text-background hover:text-highlight'
 							>
 								<th
 									scope="row"

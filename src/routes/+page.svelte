@@ -29,7 +29,7 @@
 				{#each loaded as { title, id }, i}
 					<a href="/p/{id}" class="contents">
 						<tr
-							class="odd:bg-background even:bg-secondary odd:hover:text-highlight even:hover:text-background"
+							class='odd:bg-background even:bg-headline odd:text-headline even:text-background hover:text-highlight'
 						>
 							<th
 								scope="row"
