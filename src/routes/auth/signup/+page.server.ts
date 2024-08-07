@@ -19,7 +19,8 @@ export const actions = {
     const { success, error, data } = Schema.safeParse(object);
 
     if (!success) {
-      return fail(422, { msg: error.message });
+      const errorMessage = JSON.parse(error.message)
+      return fail(422, { msg: errorMessage[0].message});
     }
     const { username, password, passwordTwo } = data;
     if (password !== passwordTwo) {

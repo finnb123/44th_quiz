@@ -11,8 +11,8 @@
 <AuthCard>
   <h1 class="text-center text-4xl text-headline">Log In</h1>
   {#if form?.msg}
-    <div class="flex flex-col items-center justify-center">
-      <p class="w-1/2 w-max-96 text-highlight">{form.msg}</p>
+    <div class="flex flex-col items-center justify-center text-center">
+      <p class="w-3/4 w-max-96 text-highlight">{form.msg}</p>
     </div>
   {/if}
   <input
