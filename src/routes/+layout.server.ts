@@ -1,15 +1,15 @@
-import type { LayoutServerLoad } from "./$types";
+import type { LayoutServerLoad } from './$types';
 
 export const load: LayoutServerLoad = (async (event) => {
-  if (!event.locals.user) {
-    return {
-      logged_in: false,
-    };
-  }
-  const {
-    locals: { session },
-  } = event;
-  return { logged_in: true, session };
+	if (!event.locals.user) {
+		return {
+			logged_in: false
+		};
+	}
+	const {
+		locals: { session }
+	} = event;
+	return { logged_in: true, session };
 }) satisfies LayoutServerLoad;
 
 // don't do authentication in pageloads unless you want to await parent everywhere

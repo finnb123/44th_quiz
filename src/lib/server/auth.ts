@@ -1,8 +1,8 @@
 /* eslint arrow-body-style: 0 */
-import { Lucia, TimeSpan } from "lucia";
-import { PrismaAdapter } from "@lucia-auth/adapter-prisma";
-import { PrismaClient } from "@prisma/client";
-import { dev } from "$app/environment";
+import { Lucia, TimeSpan } from 'lucia';
+import { PrismaAdapter } from '@lucia-auth/adapter-prisma';
+import { PrismaClient } from '@prisma/client';
+import { dev } from '$app/environment';
 
 // do not create a new client twice,
 // your pooling config might fuck it in prod
@@ -14,8 +14,8 @@ export const client = new PrismaClient();
 const adapter = new PrismaAdapter(client.session, client.user);
 
 interface DatabaseUserAttributes {
-  username: string;
-  id: string;
+	username: string;
+	id: string;
 }
 
 // if you want only single export files
@@ -24,28 +24,28 @@ interface DatabaseUserAttributes {
 // to expect makes it much easier
 // to write and maintain code.
 export const lucia = new Lucia(adapter, {
-  // thats short
-  sessionExpiresIn: new TimeSpan(1, "h"),
-  sessionCookie: {
-    attributes: {
-      // smart but also use import.meta.env.DEV
-      secure: !dev,
-    },
-  },
-  getUserAttributes: (attributes) => {
-    return {
-      username: attributes.username,
-      id: attributes.id,
-    };
-  },
+	// thats short
+	sessionExpiresIn: new TimeSpan(1, 'h'),
+	sessionCookie: {
+		attributes: {
+			// smart but also use import.meta.env.DEV
+			secure: !dev
+		}
+	},
+	getUserAttributes: (attributes) => {
+		return {
+			username: attributes.username,
+			id: attributes.id
+		};
+	}
 });
 
 // this should be in app.d.ts
-declare module "lucia" {
-  interface Register {
-    Lucia: typeof lucia;
-    DatabaseUserAttributes: DatabaseUserAttributes;
-  }
+declare module 'lucia' {
+	interface Register {
+		Lucia: typeof lucia;
+		DatabaseUserAttributes: DatabaseUserAttributes;
+	}
 }
 
 // let clientCache = null;
